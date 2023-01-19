@@ -1,0 +1,277 @@
+@charset "utf-8";
+
+/* ---------------------------------- **
+		Modal Window
+** ---------------------------------- */
+
+#layer_board_area {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 3vw;
+  overflow-y: auto;
+  box-sizing: border-box;
+  /*スクロールバーを非表示*/
+  -ms-overflow-style: none;
+  /*スクロールバーを非表示*/
+  scrollbar-width: none;
+  /*スクロールバーを非表示*/
+  z-index: 9999999;
+}
+
+#layer_board_area::-webkit-scrollbar {
+  display: none;
+  /*スクロールバーを非表示*/
+}
+
+.layer_board_bg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  cursor: pointer;
+  background: #000;
+  z-index: 0;
+}
+
+
+/* --modalWindow ポップアップ部分-- */
+
+.layer_board {
+  display: none;
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 3em auto;
+  padding: 4em;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background: #fff;
+  z-index: 10;
+}
+
+.layer_board.shortLayer {
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* --modalWindow バツ(閉じる)ボタン-- */
+
+.layer_board .mdl_btn_close.circle_btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: #000;
+  background-image: url("../images/btn_close.png");
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position: 50%;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  transition: .15s;
+}
+
+.layer_board .mdl_btn_close.circle_btn:hover {
+  background-color: #FDB53F;
+  border: 1px solid #FDB53F;
+}
+
+
+/* --↑必須なのはここまで↑-- */
+
+
+/* --modalWindow タイトル部分-- */
+
+.layer_borad_title {
+  font-size: 200%;
+  font-weight: 200;
+  color: #ED344E;
+}
+
+
+/* --modalWindow コンテンツ部分-- */
+
+.layer_borad_content {
+  margin: 1em auto 1.5em;
+}
+
+
+/* --modalWindow 四角ボタン-- */
+
+.layer_board .square_btn {
+  display: block;
+  position: relative;
+  width: 160px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid #111;
+  border-radius: 2px;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #111;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: .15s;
+}
+
+.layer_board .square_btn:hover {
+  background: #111;
+  color: #fff;
+}
+
+@media screen and (max-width:480px) {
+  .layer_board {
+    width: 90%;
+    margin: 3em auto;
+    padding: 1.5em;
+  }
+  .layer_board .mdl_btn_close.circle_btn {
+    width: 26px;
+    height: 26px;
+    background-size: 14px;
+  }
+}
+
+.layer_board {
+  padding: 0;
+}
+
+.modal_head {
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 23px;
+  width: 100%;
+  border-bottom: 1px solid #d3d3d3;
+  border-radius: 5px 5px 0 0;
+  padding-left: 30px;
+}
+
+.layer_board .mdl_btn_close.circle_btn {
+  top: 15px;
+}
+
+.layer_borad_content {
+  margin: 0;
+  background-color: #eeeeee;
+  padding: 30px;
+}
+
+.modal_items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal_item {
+  width: 236px;
+  border: 1px solid #d3d3d3;
+  padding: 15px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #fff;
+  margin-bottom: 11px;
+}
+
+.modal_item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.modal_button {
+  display: block;
+  width: 335px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 44px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2b282f;
+}
+
+@media only screen and (max-width: 767px) {
+  #layer_board_area {
+    z-index: 10000000000;
+  }
+  .layer_board {
+    border-radius: 0;
+  }
+  .modal_head {
+    line-height: 36px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+    border-radius: 5px 5px 0 0;
+    padding-left: 15px;
+  }
+  .layer_board .mdl_btn_close.circle_btn {
+    top: 5px;
+  }
+  .layer_borad_content {
+    padding: 15px;
+  }
+  .modal_items {
+    margin-bottom: 5px;
+  }
+  .modal_item {
+    width: calc(50% - 3.5px);
+    padding: 10px;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .modal_item img {
+    margin-bottom: 7px;
+  }
+  .modal_button {
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    line-height: 40px;
+    font-size: 14px;
+  }
+}
+
+.moodal_btn {
+  margin-top: 25px;
+  /*margin-bottom:25px;margin-left: 100px;;*/
+}
+
+.sp_button {
+  display: none;
+}
+
+@media only screen and (max-width: 575px) {
+  .moodal_btn {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .moodal_btn img {
+    width: 150px;
+  }
+  .pc_button {
+    display: none;
+  }
+  .sp_button {
+    display: block;
+  }
+}
